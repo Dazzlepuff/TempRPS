@@ -1,0 +1,14 @@
+CREATE DATABASE IF NOT EXISTS rock_paper_scissors
+    CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+USE rock_paper_scissors;
+
+CREATE TABLE IF NOT EXISTS Account (
+    AccountID INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    Username VARCHAR(64) NOT NULL,
+    Password VARCHAR(255) CHARACTER SET ascii COLLATE ascii_bin NOT NULL,
+    Wins INT UNSIGNED NOT NULL DEFAULT 0,
+    Losses INT UNSIGNED NOT NULL DEFAULT 0,
+    CreatedAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    UNIQUE KEY account_username_unique (Username)
+) ENGINE=InnoDB;
